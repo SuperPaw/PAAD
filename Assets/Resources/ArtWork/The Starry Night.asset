@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106ce96405595c42857bb6a07c5e3da, type: 3}
+  m_Name: The Starry Night
+  m_EditorClassIdentifier: 
+  name: The Starry Night
+  Sprite: {fileID: 21300000, guid: eeb7e805164432d46a36e446026bbe05, type: 3}
+  InitialValue: 20
+  Value: 20
+  Producable: 0
+  Scavengable: 0
+  Artist: Vincent van Gogh
+  SalesPitch: The Starry Night is regarded as among Van Gogh's finest works, The
+    Starry Night is one of the most recognized paintings in the history of Western
+    culture.
+  Info: 'oil on canvas by the Dutch post-impressionist painter Vincent van Gogh. '
+  Year: 1889
+  Properties: 0a0000000900000003000000070000000f000000110000000c000000
+  Colors: 0200000004000000
+  Movement: e.g. Surrealist
+  Type: e.g. Painting

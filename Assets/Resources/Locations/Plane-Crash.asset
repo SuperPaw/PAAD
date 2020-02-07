@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0c1b2fdfde8bc4e8797973fc9509f0, type: 3}
+  m_Name: Plane-Crash
+  m_EditorClassIdentifier: 
+  name: Crash Site
+  Community: {fileID: 11400000, guid: b3074a3cfedb669418593f66330b3e9c, type: 2}
+  ClosestNeighbours: []
+  Visibility: 7
+  Security: 1
+  Food: 8

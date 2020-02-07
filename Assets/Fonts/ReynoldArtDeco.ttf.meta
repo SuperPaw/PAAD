@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 93527b7190b9b144893e428388047dfe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Reynold
+  fontNames:
+  - Reynold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8370c5ccbd2baf34dbc5136488e2500e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
