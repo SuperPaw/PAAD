@@ -10,13 +10,16 @@ using UnityEditor;
 
 public class Database : MonoBehaviour
 {
-    public static Commodity[] AllComodities;
+    public static Database Instance;
+    public Commodity[] AllComodities;
 
-    public static Community[] AllCommunities;
+    public Community[] AllCommunities;
 
     private void Awake()
     {
-        LoadScriptableObjects();
+        if (!Instance) Instance = this;
+
+        //LoadScriptableObjects();
     }
 
 

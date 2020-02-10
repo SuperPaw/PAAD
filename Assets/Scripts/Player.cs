@@ -4,10 +4,25 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+//TODO: maybe rename to something more manager ish
 public class Player : MonoBehaviour
 {
     public static List<ArtWork> ArtWorks;
     public static Dictionary<Commodity, int> Inventory = new Dictionary<Commodity, int>();
+
+    private static int day = 0;
+    public static int Day
+    {
+        get => day; set
+        {
+            if (value != day)
+                OnDayChange.Invoke(); //TODO: invoke several times for more days
+            day = value;
+        }
+    }
+
+    public static UnityEvent OnDayChange = new UnityEvent();
 
     private static Location location;
 
@@ -60,6 +75,7 @@ public class Player : MonoBehaviour
 
 
 
+
     //TODO: use parent class for community and player for shared fields
 
     void Awake()
@@ -67,7 +83,14 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         ArtWorks = Resources.FindObjectsOfTypeAll<ArtWork>().ToList();
 #endif
+        DontDestroyOnLoad(gameObject);
+
+        OnDayChange.AddListener(() => Player.Food--);
     }
 
+    public static void NextDay()
+    {
+        Day++;
+    }
 
 }

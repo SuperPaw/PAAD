@@ -20,12 +20,28 @@ public class TradeSystem : MonoBehaviour
     public UnityEvent OnUpdate;
     //maybe just parse to update event
     public string CurrentComment;
-    public TradeState CurrentState;
-    public enum TradeState { NeedsArt, Negotiating, Success, Collapse}
+    [HideInInspector]
+    public TradeState CurrentTradeState = TradeState.NoCustomer;
+    public enum TradeState { NeedsArt, Negotiating, Success, Collapse,NoCustomer}
+
+
+    private void Start()
+    {
+        Player.OnDayChange.AddListener(CustomerChance);
+    }
+
+    private void CustomerChance()
+    {
+
+        if (Random.Range(0, 10) >= Player.Visibility)
+            SelectCustomer();
+        else
+            CurrentTradeState = TradeState.NoCustomer;
+    }
     
     public void SelectCustomer()
     {
-        Buyer = Database.AllCommunities[Random.Range(0, Database.AllCommunities.Length)];
+        Buyer = Database.Instance.AllCommunities[Random.Range(0, Database.Instance.AllCommunities.Length)];
 
         //TODO: should happen automatically
         Buyer.SetupInventory();
@@ -37,7 +53,7 @@ public class TradeSystem : MonoBehaviour
 
         CurrentComment = $"I want something {WantedColor} and {WantedProperty}!";
 
-        CurrentState = TradeState.NeedsArt;
+        CurrentTradeState = TradeState.NeedsArt;
 
         OnUpdate.Invoke();
     }
@@ -75,7 +91,7 @@ public class TradeSystem : MonoBehaviour
 
         CurrentOffer = Buyer.GetResourcesOfValue(Random.Range(CurrentArt.Value / 5, CurrentArt.Value+Patience));
 
-        CurrentState = TradeState.Negotiating;
+        CurrentTradeState = TradeState.Negotiating;
 
         OnUpdate.Invoke();
     }
@@ -150,7 +166,7 @@ public class TradeSystem : MonoBehaviour
 
         Debug.Log($"{CurrentArt} sold for {CommoditiesAsString(CurrentOffer)}");
 
-        CurrentState = TradeState.Success;
+        CurrentTradeState = TradeState.Success;
 
         OnUpdate.Invoke();
     }
@@ -161,7 +177,7 @@ public class TradeSystem : MonoBehaviour
 
         Debug.Log($"{CurrentArt} not sold. Last offer: {CommoditiesAsString(CurrentOffer)}");
 
-        CurrentState = TradeState.Collapse;
+        CurrentTradeState = TradeState.Collapse;
 
         OnUpdate.Invoke();
     }

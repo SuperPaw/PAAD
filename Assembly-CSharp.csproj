@@ -63,23 +63,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ArtSelectUI.cs" />
-    <Compile Include="Assets\Scripts\ArtWork.cs" />
-    <Compile Include="Assets\Scripts\Commodity.cs" />
-    <Compile Include="Assets\Scripts\Community.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CounterOffer.cs" />
     <Compile Include="Assets\Scripts\Database.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Group.cs" />
-    <Compile Include="Assets\Scripts\Location.cs" />
     <Compile Include="Assets\Scripts\LocationObject.cs" />
     <Compile Include="Assets\Scripts\OfferResourceInstance.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\SelectLocationUI.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ArtWork.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Commodity.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Community.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Location.cs" />
     <Compile Include="Assets\Scripts\TradeSystem.cs" />
-    <Compile Include="Assets\Scripts\TradeUI.cs" />
-    <Compile Include="Assets\Scripts\UIManager.cs" />
-    <Compile Include="Assets\TopbarUI.cs" />
+    <Compile Include="Assets\Scripts\UI\ArtSelectUI.cs" />
+    <Compile Include="Assets\Scripts\UI\SelectLocationUI.cs" />
+    <Compile Include="Assets\Scripts\UI\TopbarUI.cs" />
+    <Compile Include="Assets\Scripts\UI\TradeUI.cs" />
+    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
