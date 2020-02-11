@@ -42,8 +42,6 @@ public class CounterOffer : MonoBehaviour
 
     private void UpdateResourceInOffer(string s,Commodity r)
     {
-        Debug.Log(s + " of " + r.name);
-
         OnOffer[r] = int.Parse(s);
     }
 

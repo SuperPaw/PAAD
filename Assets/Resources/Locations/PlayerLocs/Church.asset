@@ -15,7 +15,10 @@ MonoBehaviour:
   name: Church
   Description: 
   Community: {fileID: 0}
-  ClosestNeighbours: []
+  ClosestNeighbours:
+  - {fileID: 11400000, guid: e2c3feb2fe7d2ba4fadcbab825e3a5d1, type: 2}
+  - {fileID: 11400000, guid: c33d29136afc9fd41a03511a6c47dabd, type: 2}
+  - {fileID: 11400000, guid: 44f6b7f9976f90046a27b5f667a88550, type: 2}
   Visibility: 9
   Security: 2
   Food: 4

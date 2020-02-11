@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0c1b2fdfde8bc4e8797973fc9509f0, type: 3}
+  m_Name: MutatedSewers
+  m_EditorClassIdentifier: 
+  name: SewerMutantsHome
+  Description: 
+  Community: {fileID: 11400000, guid: 6b799751f67ea2943840a5546db4d172, type: 2}
+  ClosestNeighbours: []
+  Visibility: 5
+  Security: 5
+  Food: 5
+  LocationSceneName: 

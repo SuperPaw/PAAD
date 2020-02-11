@@ -9,14 +9,13 @@ public class TradeUI : MonoBehaviour
     public TradeSystem TradeSystem;
     public CounterOffer CounterOffer;
     public Text TradeText, PatienceText, CurrentOfferText;
-    public Button AcceptTradeButton, CounterOfferButton, NextDay;
+    public Button AcceptTradeButton, CounterOfferButton, NextDay,DenyTradeButton,SellingArgumentButton;
     public GameObject SelectItemMenu;
     public TextMeshProUGUI CommentText;
     public Image CharacterImage;
 
     public void OpenCounterOffer()
     {
-        Debug.Log("Counter offer...");
         CounterOffer.Setup(TradeSystem.Buyer, TradeSystem.CurrentOffer);
     }
 
@@ -26,6 +25,7 @@ public class TradeUI : MonoBehaviour
         NextDay.onClick.AddListener(Player.NextDay);
         Player.OnDayChange.AddListener(UpdateUI);
         AcceptTradeButton.onClick.AddListener(TradeSystem.AcceptOffer);
+        DenyTradeButton.onClick.AddListener(TradeSystem.DeclineOffer);
         UpdateUI();
     }
 
@@ -52,9 +52,11 @@ public class TradeUI : MonoBehaviour
         CharacterImage.gameObject.SetActive(TradeSystem.CurrentTradeState != TradeSystem.TradeState.NoCustomer);
 
         //Enabling/disabling based on trade state
+        //TODO: make a class that listens to Trade update. TradeUpdate sends the new tradestate. Enables/disables button
         SelectItemMenu.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.NeedsArt);
         AcceptTradeButton.gameObject.SetActive( TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
         CounterOfferButton.gameObject.SetActive( TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
+        DenyTradeButton.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
         NextDay.gameObject.SetActive( TradeSystem.CurrentTradeState == TradeSystem.TradeState.Success ||TradeSystem.CurrentTradeState == TradeSystem.TradeState.Collapse || TradeSystem.CurrentTradeState == TradeSystem.TradeState.NoCustomer);
 
     

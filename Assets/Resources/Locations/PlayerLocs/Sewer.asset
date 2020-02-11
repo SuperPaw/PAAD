@@ -15,8 +15,11 @@ MonoBehaviour:
   name: Sewer
   Description: 
   Community: {fileID: 0}
-  ClosestNeighbours: []
-  Visibility: 1
-  Security: 9
-  Food: 5
+  ClosestNeighbours:
+  - {fileID: 11400000, guid: 6b799751f67ea2943840a5546db4d172, type: 2}
+  - {fileID: 11400000, guid: e6d8f8a7cc3c0e947b1c4806f3952956, type: 2}
+  - {fileID: 11400000, guid: 320ea57d72c56c346b2555b5dd30c53f, type: 2}
+  Visibility: 2
+  Security: 7
+  Food: 6
   LocationSceneName: Sewer

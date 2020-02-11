@@ -15,8 +15,11 @@ MonoBehaviour:
   name: Underground Bunker
   Description: 
   Community: {fileID: 0}
-  ClosestNeighbours: []
-  Visibility: 0
+  ClosestNeighbours:
+  - {fileID: 11400000, guid: 492f27f7f74240c4486cac06fcf2cc3a, type: 2}
+  - {fileID: 11400000, guid: e6d8f8a7cc3c0e947b1c4806f3952956, type: 2}
+  - {fileID: 11400000, guid: 6b799751f67ea2943840a5546db4d172, type: 2}
+  Visibility: 1
   Security: 9
-  Food: 6
+  Food: 5
   LocationSceneName: Bunker

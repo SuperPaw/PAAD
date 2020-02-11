@@ -12,11 +12,11 @@ public class Location : ScriptableObject
     [Header("Possible Player location, if empty")]
     public Community Community;
     public Community[] ClosestNeighbours;
-    [Range(0,9)]
+    [Range(1,9)]
     public int Visibility;
-    [Range(0, 9)] 
+    [Range(1, 9)] 
     public int Security;
-    [Range(0, 9)] 
+    [Range(1, 9)] 
     public int Food;
     [SerializeField]
     private string LocationSceneName;

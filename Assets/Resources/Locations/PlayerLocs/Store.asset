@@ -15,7 +15,10 @@ MonoBehaviour:
   name: Convenience Store
   Description: 
   Community: {fileID: 0}
-  ClosestNeighbours: []
+  ClosestNeighbours:
+  - {fileID: 11400000, guid: 5f94f7740682fe14cbc122d10884c3b7, type: 2}
+  - {fileID: 11400000, guid: e2c3feb2fe7d2ba4fadcbab825e3a5d1, type: 2}
+  - {fileID: 11400000, guid: 320ea57d72c56c346b2555b5dd30c53f, type: 2}
   Visibility: 4
   Security: 2
   Food: 9

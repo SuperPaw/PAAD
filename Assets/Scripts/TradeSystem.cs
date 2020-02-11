@@ -23,20 +23,56 @@ public class TradeSystem : MonoBehaviour
     [HideInInspector]
     public TradeState CurrentTradeState = TradeState.NoCustomer;
     public enum TradeState { NeedsArt, Negotiating, Success, Collapse,NoCustomer}
+    private int NoCustomerDelayCount = 0;
+    private Queue<int> NoCustomerCountups =  new Queue<int>(new int[] { 4, 0, 3, 5, 5 }) ;
+
 
 
     private void Start()
     {
         Player.OnDayChange.AddListener(CustomerChance);
+
+        //TEST for customerchance
+        //foreach(var loc in FindObjectsOfType<LocationObject>().Where(l => !l.Location.Community))
+        //{
+        //    Player.Visibility = loc.Location.Visibility;
+        //    var cust = 0f;
+        //    for(int i = 0; i < 1000; i++)
+        //    {
+        //        if (CustomerToday()) cust++;
+        //    }
+        //    Debug.Log($"{loc.Location} ({Player.Visibility} visibility) has {cust/1000f} chance for customers");
+        //}
     }
 
     private void CustomerChance()
     {
-
-        if (Random.Range(0, 10) >= Player.Visibility)
+        if (CustomerToday())
+        {
             SelectCustomer();
+        }
         else
+        {
             CurrentTradeState = TradeState.NoCustomer;
+        }
+    }
+
+    private bool CustomerToday()
+    {
+
+        if (NoCustomerDelayCount < Player.Visibility)
+        {
+            var count = NoCustomerCountups.Dequeue();
+            NoCustomerDelayCount += count;
+            NoCustomerCountups.Enqueue(count);
+            return true;
+        }
+        else
+        {
+            NoCustomerDelayCount = Mathf.Max(0, NoCustomerDelayCount - Player.Visibility);
+
+            return false;
+        }
     }
     
     public void SelectCustomer()
@@ -116,7 +152,7 @@ public class TradeSystem : MonoBehaviour
             {
                 CurrentComment = "What about this?";
 
-                var extra = additionals.First(a=> a.Value > 0);
+                var extra = additionals.First(a => a.Value > 0);
 
                 CurrentOffer[extra.Key] = ((extra.Value > 1) ? extra.Value / 2 : 1) + ((CurrentOffer.ContainsKey(extra.Key) ? CurrentOffer[extra.Key] : 0));
 
@@ -132,11 +168,15 @@ public class TradeSystem : MonoBehaviour
         else if (additionalsValue < Patience * 4)
         {
             CurrentComment = "That's too much.";
-            
+
             Patience--;
         }
         else
-            TradeFailure();
+        {
+            CurrentComment = "No! I'm outta here. See ya!";
+            TradeFailure(); 
+        }
+
 
         OnUpdate.Invoke();
     }
@@ -148,6 +188,9 @@ public class TradeSystem : MonoBehaviour
 
     public void DeclineOffer()
     {
+        //TODO: chance for them to up their offer, if they really want it
+
+        CurrentComment = "alright. See ya!";
         TradeFailure();
     }
 
@@ -173,7 +216,6 @@ public class TradeSystem : MonoBehaviour
 
     private void TradeFailure()
     {
-        CurrentComment = "No! I'm outta here. See ya!";
 
         Debug.Log($"{CurrentArt} not sold. Last offer: {CommoditiesAsString(CurrentOffer)}");
 

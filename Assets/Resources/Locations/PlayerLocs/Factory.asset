@@ -15,7 +15,10 @@ MonoBehaviour:
   name: Factory
   Description: 
   Community: {fileID: 0}
-  ClosestNeighbours: []
+  ClosestNeighbours:
+  - {fileID: 11400000, guid: 5f94f7740682fe14cbc122d10884c3b7, type: 2}
+  - {fileID: 11400000, guid: b3074a3cfedb669418593f66330b3e9c, type: 2}
+  - {fileID: 11400000, guid: 3fa1943ff6273124fab2fdeb80c3ee7c, type: 2}
   Visibility: 6
   Security: 3
   Food: 6

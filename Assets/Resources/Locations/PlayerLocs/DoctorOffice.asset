@@ -15,7 +15,10 @@ MonoBehaviour:
   name: Hospital
   Description: 
   Community: {fileID: 0}
-  ClosestNeighbours: []
+  ClosestNeighbours:
+  - {fileID: 11400000, guid: 6b799751f67ea2943840a5546db4d172, type: 2}
+  - {fileID: 11400000, guid: 492f27f7f74240c4486cac06fcf2cc3a, type: 2}
+  - {fileID: 11400000, guid: 3fa1943ff6273124fab2fdeb80c3ee7c, type: 2}
   Visibility: 7
   Security: 6
   Food: 2

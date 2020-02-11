@@ -67,9 +67,9 @@ public class Player : MonoBehaviour
         set
         {
             location = value;
-            Visibility = location.Visibility;
-            Security = location.Security;
-            Food = location.Food;
+            Visibility = location.Visibility ;
+            Security = location.Security ;
+            Food = location.Food * 10;
         }
     }
 
