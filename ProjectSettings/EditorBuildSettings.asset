@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CityScene.unity
+    path: Assets/Scenes/MainScene.unity
     guid: 04369fb899db60f48a62f06cb460ce80
   - enabled: 1
     path: Assets/Scenes/Sewer.unity

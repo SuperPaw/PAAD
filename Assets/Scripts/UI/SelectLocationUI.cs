@@ -16,7 +16,7 @@ public class SelectLocationUI : MonoBehaviour
     void Start()
     {
         Locations = FindObjectsOfType<LocationObject>().Where(l => !l.Location.Community).ToArray();
-        UpdateLocation(Locations[0]);
+        UpdateUI(Locations[0]);
         NextLocationButton.onClick.AddListener(NextLocation);
         PreviousLocationButton.onClick.AddListener(PreviousLocation);
         SelectLocationButton.onClick.AddListener(SelectLocation);
@@ -28,7 +28,7 @@ public class SelectLocationUI : MonoBehaviour
 
         if (i == Locations.Length) i = 0;
 
-        UpdateLocation(Locations[i]);
+        UpdateUI(Locations[i]);
     }
 
     void PreviousLocation()
@@ -37,7 +37,7 @@ public class SelectLocationUI : MonoBehaviour
 
         if (i < 0) i = Locations.Length-1;
 
-        UpdateLocation(Locations[i]);
+        UpdateUI(Locations[i]);
     }
 
     void SelectLocation()
@@ -45,7 +45,7 @@ public class SelectLocationUI : MonoBehaviour
         CurrentSelectedLocation.Location.SelectLocation();
     }
 
-    void UpdateLocation(LocationObject loc)
+    void UpdateUI(LocationObject loc)
     {
         CurrentSelectedLocation = loc;
         CameraController.MoveToLocation(loc);
@@ -53,6 +53,8 @@ public class SelectLocationUI : MonoBehaviour
         var l = loc.Location;
         VisibilityText.text = $"Visibility: {l.Visibility}";
         SecurityText.text = $"Security: {l.Security}";
+        NeighboursText.text = "Neighbours: " + loc.Location.ClosestNeighbours.Aggregate("",(current,next) =>current + (current != "" ? ", " : "") +next.name);
+
         FoodText.text = $"Food: {l.Food}";
         LocationName.text = l.name;
 

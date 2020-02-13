@@ -18,6 +18,10 @@ MonoBehaviour:
   LeaderName: Stanley Lincoln
   LeaderImage: {fileID: 21300000, guid: 9cb7a0a6d633baf41ac0368590422d2b, type: 3}
   CommunityIcon: {fileID: 0}
+  Producers: 0
+  Scavengers: 0
+  Raiders: 0
+  LeaderTraits: 00000000060000000a000000
   PrimaryResources:
   - {fileID: 11400000, guid: 10937e9c275f7d44993e0af8b872c703, type: 2}
   - {fileID: 11400000, guid: 807680dfdfd16d84697b342a270902cc, type: 2}

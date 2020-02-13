@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8872303449277178694}
   - component: {fileID: 8872303449277178692}
   - component: {fileID: 8872303449277178691}
-  - component: {fileID: 6659362261935691020}
   - component: {fileID: 493167235519038062}
   - component: {fileID: 4601023443925522193}
   m_Layer: 0
@@ -49,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentArt: {fileID: 11400000, guid: 8bed45c94e9ebee488987cb3ff90734d, type: 2}
+  HasMadeSalesPitch: 0
   Patience: 0
   WantedProperty: 0
   WantedColor: 0
@@ -56,7 +56,44 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   CurrentComment: 
-  CurrentState: 0
+  CurrentTradeState: 5
+  SaleArguments:
+  - Type: 0
+    Text: '"This is a good offer!"'
+    LikesArgument: 0000000005000000
+    DislikesArgument: 0400000001000000
+  - Type: 7
+    Text: '"This represents the destruction of society"'
+    LikesArgument: 030000000a000000
+    DislikesArgument: 0b0000000200000008000000
+  - Type: 3
+    Text: '"This is very modern!"'
+    LikesArgument: 03000000
+    DislikesArgument: 02000000
+  - Type: 5
+    Text: '"This is a deeply profound piece!"'
+    LikesArgument: 0800000002000000
+    DislikesArgument: 090000000a000000
+  - Type: 4
+    Text: '"It is pretty!"'
+    LikesArgument: 040000000100000008000000
+    DislikesArgument: 090000000500000000000000
+  - Type: 6
+    Text: '"This has great history!"'
+    LikesArgument: 02000000
+    DislikesArgument: 03000000
+  - Type: 2
+    Text: '"This is very old!"'
+    LikesArgument: 02000000
+    DislikesArgument: 03000000
+  - Type: 1
+    Text: '"This was worth a lot in the old world!"'
+    LikesArgument: 0000000001000000
+    DislikesArgument: 05000000
+  - Type: 8
+    Text: '"You are smart if you buy this!"'
+    LikesArgument: 0600000004000000
+    DislikesArgument: 0800000007000000
 --- !u!114 &8872303449277178692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,18 +132,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee79649d72c78748b72d34bfd65b0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6659362261935691020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8872303449277178712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf5be2567c3c5e2458913777f358d845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &493167235519038062

@@ -1,2 +1,10 @@
 
 .vs/PAAD/v16/Server/sqlite3/db.lock
+
+.vs/PAAD/v16/
+
+*.csproj
+
+Library/
+
+*.cache

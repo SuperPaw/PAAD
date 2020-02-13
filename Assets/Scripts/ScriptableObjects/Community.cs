@@ -5,6 +5,22 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Community : ScriptableObject
 {
+    public enum LeaderTrait
+    {
+        Economical, //cheapskate
+        Extravagant, //opposite
+        Nostalgic, //like analogue things
+        Modernist, //tech-lover
+        Decadent,
+        Practical,
+        Narcissist,
+        Selfless,
+        Virtuous,
+        Wicked,
+        Violent,
+        Pacifist // Anarchist?
+    }
+
     [SerializeField]
     private int StartAttitude = 5;
     [SerializeField]
@@ -17,6 +33,7 @@ public class Community : ScriptableObject
     public bool Producers;
     public bool Scavengers;
     public bool Raiders;
+    public LeaderTrait[] LeaderTraits;
     [SerializeField]
     private Commodity[] PrimaryResources;
     public ArtWork.Property[] FavoriteProperties;
@@ -36,7 +53,7 @@ public class Community : ScriptableObject
     {
 
         //TODO: use wealth to determine how much stuff they have
-        foreach(var c in Database.Instance.AllComodities)
+        foreach (var c in Database.Instance.AllComodities)
         {
             Inventory[c] = Random.Range(2, 20);
         }
@@ -47,14 +64,14 @@ public class Community : ScriptableObject
     /// <summary>
     /// Non-deterministically returns an amount of resources equal to or lower in value than specified.
     /// </summary>
-    public Dictionary<Commodity,int> GetResourcesOfValue(int value)
+    public Dictionary<Commodity, int> GetResourcesOfValue(int value)
     {
         var valuables = Inventory.Where(kv => kv.Key.Value * kv.Value > value / 2);
 
         Commodity primaryResource;
         if (valuables.Any())
             primaryResource = valuables.ToArray()[Random.Range(0, valuables.Count())].Key;
-        else 
+        else
             primaryResource = Inventory.ToArray()[Random.Range(0, Inventory.Count)].Key;
 
         var resources = new Dictionary<Commodity, int>();
@@ -69,7 +86,7 @@ public class Community : ScriptableObject
 
         var minRes = Inventory.Keys.Except(resources.Keys).Min(c => c);
 
-        if (value >  minRes.Value)
+        if (value > minRes.Value)
         {
             amount = Mathf.Min(value / minRes.Value, Inventory[minRes]);
 
@@ -84,6 +101,6 @@ public class Community : ScriptableObject
     public void RemoveCommodities(Dictionary<Commodity, int> commodities)
     {
         foreach (var c in commodities)
-            Inventory[c.Key] -= c.Value;        
+            Inventory[c.Key] -= c.Value;
     }
 }

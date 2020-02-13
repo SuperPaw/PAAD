@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        Visibility = 10;
+
 #if UNITY_EDITOR
         ArtWorks = Resources.FindObjectsOfTypeAll<ArtWork>().ToList();
 #endif

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
+using System;
+using Random = UnityEngine.Random;
 
 public class TradeSystem : MonoBehaviour
 {
@@ -12,7 +14,8 @@ public class TradeSystem : MonoBehaviour
     //TODO: use or remove
     private readonly List<Commodity> AddOns = new List<Commodity>();
     public Dictionary<Commodity,int> CurrentOffer = new Dictionary<Commodity, int>();
-    private int CurrentSellValue;
+    [HideInInspector]
+    public bool HasMadeSalesPitch;
     public int Patience;
     public Community Buyer { private set;  get; }
     public ArtWork.Property WantedProperty;
@@ -22,10 +25,21 @@ public class TradeSystem : MonoBehaviour
     public string CurrentComment;
     [HideInInspector]
     public TradeState CurrentTradeState = TradeState.NoCustomer;
-    public enum TradeState { NeedsArt, Negotiating, Success, Collapse,NoCustomer}
+    public enum TradeState { NeedsArt, Negotiating, Success, Collapse,ShareRumour,NoCustomer}
     private int NoCustomerDelayCount = 0;
     private Queue<int> NoCustomerCountups =  new Queue<int>(new int[] { 4, 0, 3, 5, 5 }) ;
 
+    public SaleArgument[] SaleArguments;
+
+    [Serializable]
+    public struct SaleArgument
+    {
+        public ArgumentType Type;
+        public string Text;
+        public Community.LeaderTrait[] LikesArgument;
+        public Community.LeaderTrait[] DislikesArgument;
+    }
+    public enum ArgumentType { Cheap, Valuable, Antique, Modern, Beautiful, Poetic, Historical, Anarchistic, Charm}
 
 
     private void Start()
@@ -90,6 +104,8 @@ public class TradeSystem : MonoBehaviour
         CurrentComment = $"I want something {WantedColor} and {WantedProperty}!";
 
         CurrentTradeState = TradeState.NeedsArt;
+
+        HasMadeSalesPitch = false;
 
         OnUpdate.Invoke();
     }
@@ -231,6 +247,36 @@ public class TradeSystem : MonoBehaviour
 
     }
 
+    public string MakeSaleArgument(ArgumentType argumentType)
+    {
+        var arg = SaleArguments.First(a => a.Type == argumentType);
+
+        HasMadeSalesPitch = true;
+
+        if(arg.LikesArgument.Any( Buyer.LeaderTraits.Contains))
+        {
+            CurrentComment = $"I like {argumentType} stuff. This is my new offer.";
+            CurrentOffer = Buyer.GetResourcesOfValue(CurrentOfferValue() * 2);
+        }
+        else if (arg.DislikesArgument.Any(Buyer.LeaderTraits.Contains))
+        {
+            CurrentComment = $"Why would I like {argumentType} stuff!? You Moron!";
+
+            Patience /= 2;
+        }
+        else 
+        {
+            CurrentComment = $"So...";
+
+            Patience--;
+        }
+
+        OnUpdate.Invoke();
+
+        //TODO: actually use this in player speech bubble
+        return arg.Text;
+    }
+
     public static string CommoditiesAsString(Dictionary<Commodity, int> commodities)
     {
         if (!commodities.Any()) return "nothing";
@@ -238,4 +284,5 @@ public class TradeSystem : MonoBehaviour
         return commodities.Where(c=> c.Value > 0). Select(c => $"{c.Value} {c.Key.name}'s").Aggregate((current, next) => current + " and " + next);
     }
 
+    public int CurrentOfferValue() => CurrentOffer.Sum(a => a.Key.Value * a.Value);
 }
