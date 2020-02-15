@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003c4e4d4ccca0c42a63389012d055a6, type: 3}
   m_Name: Shiv
   m_EditorClassIdentifier: 
-  name: shiv
-  Sprite: {fileID: 0}
-  InitialValue: 10
+  name: Knife
+  Sprite: {fileID: 21300000, guid: 52a813216995b2849bf083880807b2c9, type: 3}
+  InitialValue: 8
   Value: 10
   FoodValue: 0
   SecurityValue: 1

@@ -23,9 +23,9 @@ MonoBehaviour:
   Raiders: 0
   LeaderTraits: 00000000060000000a000000
   PrimaryResources:
-  - {fileID: 11400000, guid: 10937e9c275f7d44993e0af8b872c703, type: 2}
+  - {fileID: 11400000, guid: ff7decbd8a5fe624d82bcc41d1cabcce, type: 2}
   - {fileID: 11400000, guid: 807680dfdfd16d84697b342a270902cc, type: 2}
-  - {fileID: 11400000, guid: 3bde239b6bb22654aa18423622f6d04f, type: 2}
+  - {fileID: 11400000, guid: 14410ac99c1fd6a4f93f6d9fa66f89ac, type: 2}
   FavoriteProperties: 010000000300000004000000080000000b0000000e0000000600000010000000
   FavoriteColors: 010000000300000004000000
   Attitude: 10

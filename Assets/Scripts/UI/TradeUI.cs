@@ -10,12 +10,14 @@ public class TradeUI : MonoBehaviour
     public TradeSystem TradeSystem;
     public CounterOffer CounterOffer;
     public Text TradeText, PatienceText, CurrentOfferText;
-    public Button AcceptTradeButton, CounterOfferButton, NextDay,DenyTradeButton,SellingArgumentButton;
+    public Button AcceptTradeButton, CounterOfferButton, NextDay,DenyTradeButton,SellingArgumentButton, RumourButton;
     public GameObject SelectItemMenu;
     public TextMeshProUGUI CommentText;
     public Image CharacterImage;
     private List<GameObject> InstantiatedArguments = new List<GameObject>();
     public Button ArgumentInstance;
+    [SerializeField]
+    private bool AskedForRumour;
 
     public Image ArtImage;
 
@@ -32,6 +34,7 @@ public class TradeUI : MonoBehaviour
         AcceptTradeButton.onClick.AddListener(TradeSystem.AcceptOffer);
         DenyTradeButton.onClick.AddListener(TradeSystem.DeclineOffer);
         SellingArgumentButton.onClick.AddListener(SetupArgumentButtons);
+        RumourButton.onClick.AddListener(AskForRumour);
         UpdateUI();
     }
 
@@ -51,9 +54,16 @@ public class TradeUI : MonoBehaviour
         }
         else
         {
+            AskedForRumour = false;
 
             TradeText.text = "No customer today";
             PatienceText.text = CurrentOfferText.text = "";
+        }
+
+        if(TradeSystem.CurrentTradeState == TradeSystem.TradeState.NeedsArt)
+        {
+
+            TradeText.text = $"What Piece of Art do you offer with {TradeSystem.Buyer.LeaderName} from the {TradeSystem.Buyer.name}?";
         }
 
         CharacterImage.gameObject.SetActive(TradeSystem.CurrentTradeState != TradeSystem.TradeState.NoCustomer);
@@ -67,6 +77,8 @@ public class TradeUI : MonoBehaviour
         CounterOfferButton.gameObject.SetActive( TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
         DenyTradeButton.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
         CurrentOfferText.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
+        RumourButton.gameObject.SetActive(TradeSystem.CurrentTradeState != TradeSystem.TradeState.NoCustomer &! AskedForRumour);
+
         SellingArgumentButton.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating &! TradeSystem.HasMadeSalesPitch);
         NextDay.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.Success || TradeSystem.CurrentTradeState == TradeSystem.TradeState.Collapse || TradeSystem.CurrentTradeState == TradeSystem.TradeState.NoCustomer);
     }
@@ -86,6 +98,13 @@ public class TradeUI : MonoBehaviour
 
             InstantiatedArguments.Add(o.gameObject);
         }
+    }
+
+    private void AskForRumour()
+    {
+        AskedForRumour = true;
+        RumourButton.gameObject.SetActive(false);
+        CommentText.text = RumourManager.GetRumourSpeech(TradeSystem.Buyer);
     }
 
     private void MakeArgument(TradeSystem.ArgumentType argumentType)

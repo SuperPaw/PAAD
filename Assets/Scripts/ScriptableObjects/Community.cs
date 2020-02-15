@@ -34,8 +34,7 @@ public class Community : ScriptableObject
     public bool Scavengers;
     public bool Raiders;
     public LeaderTrait[] LeaderTraits;
-    [SerializeField]
-    private Commodity[] PrimaryResources;
+    public Commodity[] PrimaryResources;
     public ArtWork.Property[] FavoriteProperties;
     public ArtWork.Color[] FavoriteColors;
     [HideInInspector]
@@ -53,7 +52,7 @@ public class Community : ScriptableObject
     {
 
         //TODO: use wealth to determine how much stuff they have
-        foreach (var c in Database.Instance.AllComodities)
+        foreach (var c in PrimaryResources)
         {
             Inventory[c] = Random.Range(2, 20);
         }

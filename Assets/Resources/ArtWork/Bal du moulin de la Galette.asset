@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106ce96405595c42857bb6a07c5e3da, type: 3}
+  m_Name: Bal du moulin de la Galette
+  m_EditorClassIdentifier: 
+  name: Bal du moulin de la Galette
+  Sprite: {fileID: 21300000, guid: bf242fb556676e644a9c7014783601b9, type: 3}
+  InitialValue: 20
+  Value: 10
+  FoodValue: 0
+  SecurityValue: 0
+  Producable: 0
+  Scavengable: 0
+  Artist: Pierre-Auguste Renoir
+  SalesPitch: 
+  Info: One of Impressionism's most celebrated masterpieces. The painting depicts
+    a typical Sunday afternoon at the original Moulin de la Galette in the district
+    of Montmartre in Paris
+  Year: 1876
+  Properties: 03000000090000000a0000000500000011000000
+  Colors: 030000000200000006000000
+  Movement: e.g. Surrealist
+  Type: e.g. Painting

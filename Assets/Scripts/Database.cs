@@ -15,6 +15,8 @@ public class Database : MonoBehaviour
 
     public Community[] AllCommunities;
 
+    public ArtWork[] AllArtWorks;
+
     private void Awake()
     {
         if (!Instance) Instance = this;
@@ -32,6 +34,8 @@ public class Database : MonoBehaviour
         AllComodities = Resources.FindObjectsOfTypeAll<Commodity>().Where(c => !(c as ArtWork)).ToArray();
 
         AllCommunities = Resources.FindObjectsOfTypeAll<Community>();
+
+        AllArtWorks = Resources.FindObjectsOfTypeAll<ArtWork>();
 #endif
     }
 

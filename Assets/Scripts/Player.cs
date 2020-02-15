@@ -57,6 +57,9 @@ public class Player : MonoBehaviour
         {
             food = value;
             OnFoodChange.Invoke(value);
+
+            if (food < 0)
+                UIManager.GameOverScreen();
         }
     }
 
@@ -73,19 +76,21 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
-
     //TODO: use parent class for community and player for shared fields
-
     void Awake()
     {
         Visibility = 10;
 
-#if UNITY_EDITOR
-        ArtWorks = Resources.FindObjectsOfTypeAll<ArtWork>().ToList();
-#endif
+//#if UNITY_EDITOR
+//        ArtWorks = Resources.FindObjectsOfTypeAll<ArtWork>().ToList();
+//#endif
         DontDestroyOnLoad(gameObject);
+
+    }
+
+    private void Start()
+    {
+        ArtWorks = Database.Instance.AllArtWorks.ToList();
 
         OnDayChange.AddListener(() => Player.Food--);
     }

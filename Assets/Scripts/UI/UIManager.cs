@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     private GameObject TradeUI;
     [SerializeField]
     private GameObject SelectLocationUI;
+    [SerializeField]
+    private GameObject GameOverUI;
 
     void Awake()
     {
@@ -22,6 +24,14 @@ public class UIManager : MonoBehaviour
     {
         Instance.TradeUI.SetActive(true);
         Instance.SelectLocationUI.SetActive(false);
+
+    }
+
+    public static void GameOverScreen()
+    {
+        Instance.TradeUI.SetActive(false);
+        Instance.SelectLocationUI.SetActive(false);
+        Instance.GameOverUI.SetActive(true);
 
     }
 }

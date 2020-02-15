@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106ce96405595c42857bb6a07c5e3da, type: 3}
+  m_Name: Jagers in de Sneeuw
+  m_EditorClassIdentifier: 
+  name: Jagers in de Sneeuw
+  Sprite: {fileID: 21300000, guid: dcfce126aeabea64c8fb1c363d8c4743, type: 3}
+  InitialValue: 20
+  Value: 10
+  FoodValue: 0
+  SecurityValue: 0
+  Producable: 0
+  Scavengable: 0
+  Artist: Pieter Bruegel the Elder
+  SalesPitch: 
+  Info: The painting that has inspired artists through centuries. It displays the
+    contrast between the home and the hunt; familiarity and the unknown; between
+    slumbering nostalgia and violent revolution, thereby speaking to the contained
+    paradox of mankind.
+  Year: 1565
+  Properties: 03000000090000000a0000000500000010000000110000000d000000
+  Colors: 030000000200000006000000
+  Movement: e.g. Surrealist
+  Type: e.g. Painting

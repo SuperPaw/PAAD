@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Skrik
   Sprite: {fileID: 21300000, guid: a696892a56b0e9245a69fadc0b9a196d, type: 3}
-  InitialValue: 20
+  InitialValue: 30
   Value: 20
+  FoodValue: 0
+  SecurityValue: 0
   Producable: 0
   Scavengable: 0
   Artist: Edvard Munch

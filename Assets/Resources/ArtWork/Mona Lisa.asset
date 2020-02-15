@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Monna Lisa
   Sprite: {fileID: 21300000, guid: 29ebbd9e5c7e9194fafbf92c4a27a4d5, type: 3}
-  InitialValue: 20
-  Value: 1
+  InitialValue: 30
+  Value: 20
+  FoodValue: 0
+  SecurityValue: 0
   Producable: 0
   Scavengable: 0
   Artist: Leonardo da Vinci

@@ -15,7 +15,9 @@ MonoBehaviour:
   name: La Persistencia de la Memoria
   Sprite: {fileID: 21300000, guid: 0175ae6b0945062488fbe2b94abda7de, type: 3}
   InitialValue: 20
-  Value: 1
+  Value: 20
+  FoodValue: 0
+  SecurityValue: 0
   Producable: 0
   Scavengable: 0
   Artist: "Salvador Dal\xED"

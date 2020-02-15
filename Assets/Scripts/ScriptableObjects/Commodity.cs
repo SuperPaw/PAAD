@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,8 +13,7 @@ public class Commodity : ScriptableObject, IComparable<Commodity>
     public new string name;
     //TODO: create plural version of name
     public Sprite Sprite;
-    [SerializeField]
-    private int InitialValue = 10;
+    public int InitialValue = 10;
     [HideInInspector]
     public int Value;
     public int FoodValue;
@@ -24,6 +24,7 @@ public class Commodity : ScriptableObject, IComparable<Commodity>
     private void Awake()
     {
         Value = InitialValue;//Random.Range(InitialValue / 5, InitialValue * 2);
+        //TODO: use commodity non-scriptable object
     }
 
     public int CompareTo(Commodity other)

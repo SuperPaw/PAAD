@@ -21,6 +21,8 @@ public class ArtWork : Commodity
     public string Movement = "e.g. Surrealist";
     public string Type = "e.g. Painting"; //TODO: types could have inferred properties, which is added automatically
 
-    public enum Property {Any, Big,Small,Burnable,Stone,Wood,Heavy,Light,Metal,Expensive,Famous,Violent,Serene,Educational,Humoristic,Modern,Antique,Beautiful,Ugly}
+    public enum Property {Any, Big,Small,Burnable,Stone,Wood,Heavy,Light,Metal,Expensive,Famous,Violent,Serene,Educational,Humoristic,Modern,Antique,Beautiful,Ugly,
+        Provocative, Sexy}
+
     public enum Color {Any, Red,Blue,Green,Yellow,Pink,White,Black,Gray,Brown}
 }

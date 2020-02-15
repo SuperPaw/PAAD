@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003c4e4d4ccca0c42a63389012d055a6, type: 3}
   m_Name: FoodCan
   m_EditorClassIdentifier: 
-  name: food can
-  Sprite: {fileID: 0}
-  InitialValue: 8
+  name: Canned food
+  Sprite: {fileID: 21300000, guid: e2e0694e970a9294e94446b22b2883cb, type: 3}
+  InitialValue: 4
   Value: 8
   FoodValue: 1
   SecurityValue: 0

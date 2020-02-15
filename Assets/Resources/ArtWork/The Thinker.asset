@@ -16,6 +16,8 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: 95bdf506d76c66b439d51a90b4f1fae3, type: 3}
   InitialValue: 20
   Value: 20
+  FoodValue: 0
+  SecurityValue: 0
   Producable: 0
   Scavengable: 0
   Artist: Auguste Rodin

@@ -32,9 +32,32 @@ public class RumourManager : MonoBehaviour
 
         if(x < SupplyRumourChance)
         {
-            var about = GetRandom(Database.Instance.AllCommunities, source);
+            var firstAbout = GetRandom(Database.Instance.AllCommunities, source);
 
-            return "Did you know... the others are stupid";
+            Community secondAbout = null;
+
+            while (!secondAbout || secondAbout == firstAbout)
+                secondAbout = GetRandom(Database.Instance.AllCommunities, source);
+
+            var firstResource = GetRandom(firstAbout.PrimaryResources, null);
+            var secondRes = GetRandom(secondAbout.PrimaryResources, firstResource);
+
+            var amountOfSec = firstResource.InitialValue / (float) secondRes.InitialValue;
+            var amountOfFirst = 1f;
+
+            while( amountOfSec %1 > 0.1f && amountOfSec %1 < 0.9f)
+            {
+                amountOfSec *= (amountOfFirst + 1) / amountOfFirst;
+                amountOfFirst++;
+            }
+
+            //ROUND up
+            if (amountOfSec % 1 >= 0.9f)
+                amountOfSec += 0.1f;
+
+
+            return $"I heard the {firstAbout.name} is trading {amountOfFirst.ToString("N0")} {firstResource.name}'s for {amountOfSec.ToString("N0")} {secondRes.name}'s with the {secondAbout.name}";
+
 
         }
         else if (x < LeaderRumourChance + SupplyRumourChance)
@@ -42,7 +65,7 @@ public class RumourManager : MonoBehaviour
 
             var about = GetRandom(Database.Instance.AllCommunities, source);
 
-            return $"Did you know that {about.LeaderName} from {about.name} is very stupid";
+            return $"Did you know that {about.LeaderName} from the {about.name} is very {about.LeaderTraits[Random.Range(0,about.LeaderTraits.Length)]}";
 
         }
         else //Story rumour
