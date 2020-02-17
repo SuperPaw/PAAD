@@ -13,7 +13,7 @@ public class TradeSystem : MonoBehaviour
     public ArtWork CurrentArt;
     //TODO: use or remove
     private readonly List<Commodity> AddOns = new List<Commodity>();
-    public Dictionary<Commodity,int> CurrentOffer = new Dictionary<Commodity, int>();
+    public CommodityGroup CurrentOffer = new CommodityGroup();
     [HideInInspector]
     public bool HasMadeSalesPitch;
     public int Patience;
@@ -101,7 +101,7 @@ public class TradeSystem : MonoBehaviour
         WantedProperty = Buyer.FavoriteProperties[Random.Range(0, Buyer.FavoriteProperties.Length)];
         WantedColor = Buyer.FavoriteColors[Random.Range(0, Buyer.FavoriteColors.Length)];
 
-        CurrentComment = $"I want something {WantedColor} and {WantedProperty}!";
+        CurrentComment = $"I want something <b>{WantedColor}</b> and <b>{WantedProperty}</b>!";
 
         CurrentTradeState = TradeState.NeedsArt;
 
@@ -141,7 +141,7 @@ public class TradeSystem : MonoBehaviour
                 break;
         }
 
-        CurrentOffer = Buyer.GetResourcesOfValue(Random.Range(CurrentArt.Value / 5, CurrentArt.Value+Patience));
+        CurrentOffer = Buyer.Inventory.GetResourcesOfValue(Random.Range(CurrentArt.Value / 5, CurrentArt.Value+Patience));
 
         CurrentTradeState = TradeState.Negotiating;
 
@@ -149,14 +149,13 @@ public class TradeSystem : MonoBehaviour
     }
 
     //TODO: are the commodities checked against inventory first?
-    public void CounterOffer(Dictionary<Commodity, int> additionals) //Dictionary<Commodity,int> addons, 
+    public void CounterOffer(CommodityGroup additionals) //Dictionary<Commodity,int> addons, 
     {
-        int additionalsValue = additionals.Sum(a => a.Key.Value * a.Value);
+        int additionalsValue = additionals.GetValue();
 
         if (additionalsValue < Patience)
         {
-            foreach (var a in additionals)
-                CurrentOffer[a.Key] = a.Value + (CurrentOffer.ContainsKey(a.Key) ? CurrentOffer[a.Key] : 0);
+            CurrentOffer.Add(additionals);
 
             TradeSuccess();
         }
@@ -164,13 +163,11 @@ public class TradeSystem : MonoBehaviour
         {
 
             //will suggest less
-            if (additionals.Sum(c => c.Value) > 1)
+            if (additionals.GetAmount() > 1)
             {
                 CurrentComment = "What about this?";
 
-                var extra = additionals.First(a => a.Value > 0);
-
-                CurrentOffer[extra.Key] = ((extra.Value > 1) ? extra.Value / 2 : 1) + ((CurrentOffer.ContainsKey(extra.Key) ? CurrentOffer[extra.Key] : 0));
+                CurrentOffer.Add(additionals.GetResourcesOfValue(additionals.GetValue() - 1));
 
                 Patience /= 2;
             }
@@ -218,12 +215,12 @@ public class TradeSystem : MonoBehaviour
 
         Player.ArtWorks.Remove(CurrentArt);
 
-        Player.Food += CurrentOffer.Sum(c => c.Key.FoodValue * c.Value);
-        Player.Security += CurrentOffer.Sum(c => c.Key.SecurityValue * c.Value);
+        Player.Food += CurrentOffer.GetFoodValue();
+        Player.Security += CurrentOffer.GetSecuritValue();
 
         //TODO: remove items from inventory
 
-        Debug.Log($"{CurrentArt} sold for {CommoditiesAsString(CurrentOffer)}");
+        Debug.Log($"{CurrentArt} sold for {CurrentOffer.AsText()}");
 
         CurrentTradeState = TradeState.Success;
 
@@ -233,7 +230,7 @@ public class TradeSystem : MonoBehaviour
     private void TradeFailure()
     {
 
-        Debug.Log($"{CurrentArt} not sold. Last offer: {CommoditiesAsString(CurrentOffer)}");
+        Debug.Log($"{CurrentArt} not sold. Last offer: {CurrentOffer.AsText()}");
 
         CurrentTradeState = TradeState.Collapse;
 
@@ -256,7 +253,8 @@ public class TradeSystem : MonoBehaviour
         if(arg.LikesArgument.Any( Buyer.LeaderTraits.Contains))
         {
             CurrentComment = $"I like {argumentType} stuff. This is my new offer.";
-            CurrentOffer = Buyer.GetResourcesOfValue(CurrentOfferValue() * 2);
+            //TODO: test that it is not possible to get lower amount
+            CurrentOffer = Buyer.Inventory.GetResourcesOfValue(CurrentOffer.GetValue() * 2);
         }
         else if (arg.DislikesArgument.Any(Buyer.LeaderTraits.Contains))
         {
@@ -276,13 +274,5 @@ public class TradeSystem : MonoBehaviour
         //TODO: actually use this in player speech bubble
         return arg.Text;
     }
-
-    public static string CommoditiesAsString(Dictionary<Commodity, int> commodities)
-    {
-        if (!commodities.Any()) return "nothing";
-
-        return commodities.Where(c=> c.Value > 0). Select(c => $"{c.Value} {c.Key.name}'s").Aggregate((current, next) => current + " and " + next);
-    }
-
-    public int CurrentOfferValue() => CurrentOffer.Sum(a => a.Key.Value * a.Value);
+    
 }

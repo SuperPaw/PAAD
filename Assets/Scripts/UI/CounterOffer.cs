@@ -7,20 +7,22 @@ public class CounterOffer : MonoBehaviour
     public Community Buyer;
     public OfferResourceInstance OfferPrefab;
     public GameObject Holder;
-    public Dictionary<Commodity, int> OnOffer = new Dictionary<Commodity, int>();
+    public CommodityGroup OnOffer = new CommodityGroup();
     public List<GameObject> InitializedObjects = new List<GameObject>();
 
-    public void Setup(Community buyer, Dictionary<Commodity,int> currentOffer)
+    public void Setup(Community buyer, CommodityGroup currentOffer)
     {
         OnOffer.Clear();
 
         foreach (var i in InitializedObjects)
             Destroy(i);
 
-        foreach (var res in buyer.Inventory)
+        foreach (var rin in buyer.Inventory)
         {
+            var res = (KeyValuePair<Commodity, int>)rin;
+
             var r = res.Key;
-            int max = res.Value - (currentOffer.ContainsKey(r) ? currentOffer[r] : 0);
+            int max = res.Value - currentOffer.GetResourceAmount(r);
 
             if (max <= 0) continue;
 
@@ -43,7 +45,7 @@ public class CounterOffer : MonoBehaviour
 
     private void UpdateResourceInOffer(string s,Commodity r)
     {
-        OnOffer[r] = int.Parse(s);
+        OnOffer.Add(r,int.Parse(s));
     }
 
     public void Submit()

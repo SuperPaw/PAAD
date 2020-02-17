@@ -48,7 +48,7 @@ public class TradeUI : MonoBehaviour
             CharacterImage.sprite = TradeSystem.Buyer?.LeaderImage;
             TradeText.text = $"Trading {TradeSystem.CurrentArt.name} with {TradeSystem.Buyer.LeaderName} from the {TradeSystem.Buyer.name}";
             PatienceText.text = $"Patience; {TradeSystem.Patience}";
-            CurrentOfferText.text = $"Current Offer: {TradeSystem.CommoditiesAsString(TradeSystem.CurrentOffer)}";
+            CurrentOfferText.text = $"Current Offer: {TradeSystem.CurrentOffer.AsText()}";
             ArtImage.sprite = TradeSystem.CurrentArt.Sprite;
 
         }

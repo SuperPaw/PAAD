@@ -56,7 +56,7 @@ public class RumourManager : MonoBehaviour
                 amountOfSec += 0.1f;
 
 
-            return $"I heard the {firstAbout.name} is trading {amountOfFirst.ToString("N0")} {firstResource.name}'s for {amountOfSec.ToString("N0")} {secondRes.name}'s with the {secondAbout.name}";
+            return $"I heard the <b>{firstAbout.name}</b>  is trading <b> {amountOfFirst.ToString("N0")} {firstResource.name}'s for {amountOfSec.ToString("N0")} {secondRes.name}'s</b> with the <b>{secondAbout.name}</b>";
 
 
         }
@@ -65,7 +65,7 @@ public class RumourManager : MonoBehaviour
 
             var about = GetRandom(Database.Instance.AllCommunities, source);
 
-            return $"Did you know that {about.LeaderName} from the {about.name} is very {about.LeaderTraits[Random.Range(0,about.LeaderTraits.Length)]}";
+            return $"Did you know that <b>{about.LeaderName}</b>  from the <b>{about.name}</b>  is very <b>{about.LeaderTraits[Random.Range(0,about.LeaderTraits.Length)]}</b>";
 
         }
         else //Story rumour

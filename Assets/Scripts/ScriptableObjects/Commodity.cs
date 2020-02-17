@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu]
-public class Commodity : ScriptableObject, IComparable<Commodity>
+public partial class Commodity : ScriptableObject, IComparable<Commodity>
 {
     //todo: food, fuel, tools and weapon class. Or just use fields
 
