@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Gun
   m_EditorClassIdentifier: 
   name: Gun
+  plural: guns
   Sprite: {fileID: 21300000, guid: 5869057ef9e42284eb67468921b7919a, type: 3}
   InitialValue: 20
-  Value: 10
+  Value: 20
   FoodValue: 0
   SecurityValue: 3
   Producable: 0

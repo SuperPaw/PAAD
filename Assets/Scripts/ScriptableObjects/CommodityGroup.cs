@@ -95,7 +95,7 @@ public class CommodityGroup : IEnumerable<KeyValuePair<Commodity,int>>
     {
         if (Inventory.Count() == 0) return "nothing";
 
-        return Inventory.Where(c => c.Value > 0).Select(c => $"{c.Value} {c.Key.name}'s").Aggregate((current, next) => current + " and " + next);
+        return Inventory.Where(c => c.Value > 0).Select(c => c.Key.AsText(c.Value)).Aggregate((current, next) => current + " and " + next);
     }
 
     internal void Clear()

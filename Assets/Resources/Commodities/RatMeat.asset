@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: RatMeat
   m_EditorClassIdentifier: 
   name: Rat Meat
+  plural: rat steaks
   Sprite: {fileID: 21300000, guid: 86344b2edd18dc74cb9df8aece2eb339, type: 3}
   InitialValue: 2
-  Value: 5
+  Value: 2
   FoodValue: 1
   SecurityValue: 0
   Producable: 1

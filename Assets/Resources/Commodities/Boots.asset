@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Boots
   m_EditorClassIdentifier: 
   name: Pair of Boots
+  plural: Pair of Boots
   Sprite: {fileID: 21300000, guid: 9919d75bdff4ad84db37fec76609e347, type: 3}
   InitialValue: 7
-  Value: 10
+  Value: 7
   FoodValue: 0
   SecurityValue: 1
   Producable: 0

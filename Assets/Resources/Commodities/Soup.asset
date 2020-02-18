@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003c4e4d4ccca0c42a63389012d055a6, type: 3}
   m_Name: Soup
   m_EditorClassIdentifier: 
-  name: Soup
+  name: bowl of Soup
+  plural: portions of soups
   Sprite: {fileID: 21300000, guid: 9ed14dac7ca09b546b9d4fc20cd2f539, type: 3}
   InitialValue: 3
-  Value: 10
+  Value: 3
   FoodValue: 1
   SecurityValue: 0
   Producable: 1

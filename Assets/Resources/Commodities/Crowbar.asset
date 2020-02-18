@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Crowbar
   m_EditorClassIdentifier: 
   name: Crowbar
+  plural: Crowbars
   Sprite: {fileID: 21300000, guid: 380ae04ec96747641a60c444e598c9d7, type: 3}
   InitialValue: 9
-  Value: 5
+  Value: 9
   FoodValue: 0
   SecurityValue: 1
   Producable: 0

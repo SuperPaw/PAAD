@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   name: Apple
+  plural: apples
   Sprite: {fileID: 21300000, guid: 15b0c3d858e1637408692567da0b222f, type: 3}
   InitialValue: 3
-  Value: 15
+  Value: 3
   FoodValue: 1
   SecurityValue: 0
   Producable: 1

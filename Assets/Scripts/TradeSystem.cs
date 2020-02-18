@@ -122,27 +122,26 @@ public class TradeSystem : MonoBehaviour
         if (CurrentArt.Colors.Contains(WantedColor)) artAptitude++;
         if (CurrentArt.Properties.Contains(WantedProperty)) artAptitude++;
 
+        CurrentOffer = Buyer.Inventory.GetResourcesOfValue(Random.Range(CurrentArt.Value / 5, CurrentArt.Value+Patience));
+
         switch (artAptitude)
         {
             case 0:
-                Patience = Buyer.Attitude /2;
+                Patience = Buyer.Attitude / 2;
 
-                CurrentComment = "That's not really what I wanted. I guess I can give you this";
+                CurrentComment = "That's not really what I wanted. I can give you " +CurrentOffer.AsText();
                 break;
             case 1:
                 Patience = Buyer.Attitude;
 
-                CurrentComment = "Alright. this is what I can give you for that";
+                CurrentComment = $"Alright. I can give you {CurrentOffer.AsText()} for that";
                 break;
             case 2:
-                Patience = Buyer.Attitude +5;
+                Patience = Buyer.Attitude + 5;
 
-                CurrentComment = "That's perfect! I can give you this";
+                CurrentComment = $"That's perfect! I will give you {CurrentOffer.AsText()}";
                 break;
         }
-
-        CurrentOffer = Buyer.Inventory.GetResourcesOfValue(Random.Range(CurrentArt.Value / 5, CurrentArt.Value+Patience));
-
         CurrentTradeState = TradeState.Negotiating;
 
         OnUpdate.Invoke();

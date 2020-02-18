@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003c4e4d4ccca0c42a63389012d055a6, type: 3}
   m_Name: RadioactiveWaste
   m_EditorClassIdentifier: 
-  name: Radioactive Waste
+  name: barrel of Radioactive Waste
+  plural: barrels of Radioactive Waste
   Sprite: {fileID: 21300000, guid: 347c3b0a963639f4ca69f9f9c27f87e4, type: 3}
   InitialValue: 5
-  Value: 10
+  Value: 5
   FoodValue: 0
   SecurityValue: 1
   Producable: 1

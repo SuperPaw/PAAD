@@ -10,6 +10,7 @@ public partial class Commodity : ScriptableObject, IComparable<Commodity>
     //todo: food, fuel, tools and weapon class. Or just use fields
 
     public new string name;
+    public  string plural;
     //TODO: create plural version of name
     public Sprite Sprite;
     public int InitialValue = 10;
@@ -29,5 +30,21 @@ public partial class Commodity : ScriptableObject, IComparable<Commodity>
     public int CompareTo(Commodity other)
     {
         return this.Value.CompareTo(other.Value);
+    }
+
+    public string AsText(int amount)
+    {
+        if (plural == "")
+            plural = name + "'s";
+
+        switch (amount)
+        {
+            case 0:
+                return "no " + plural;
+            case 1:
+                return "aeiouAEIOU".IndexOf(name) >= 0 ? "an " : "a "  + name;
+            default:
+                return amount.ToString("N0") +" "+ plural;
+        }
     }
 }

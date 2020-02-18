@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   name: Onion
+  plural: onions
   Sprite: {fileID: 21300000, guid: 8fe2ae2cf110c68478a251e3c1da9bc8, type: 3}
   InitialValue: 2
-  Value: 10
+  Value: 2
   FoodValue: 1
   SecurityValue: 0
   Producable: 0
