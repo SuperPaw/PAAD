@@ -10,7 +10,7 @@ public class TradeUI : MonoBehaviour
     public TradeSystem TradeSystem;
     public CounterOffer CounterOffer;
     public Text TradeText, PatienceText, CurrentOfferText;
-    public Button AcceptTradeButton, CounterOfferButton, NextDay,DenyTradeButton,SellingArgumentButton, RumourButton;
+    public Button AcceptTradeButton, CounterOfferButton, NextDay,DenyTradeButton,SellingArgumentButton, RumourButton, SelectArtButton, GetOutButton;
     public GameObject SelectItemMenu;
     public TextMeshProUGUI CommentText;
     public Image CharacterImage;
@@ -35,6 +35,8 @@ public class TradeUI : MonoBehaviour
         DenyTradeButton.onClick.AddListener(TradeSystem.DeclineOffer);
         SellingArgumentButton.onClick.AddListener(SetupArgumentButtons);
         RumourButton.onClick.AddListener(AskForRumour);
+        SelectArtButton.onClick.AddListener(() => SelectionWheel.OpenWheel(Player.ArtWorks));
+        GetOutButton.onClick.AddListener(GetOut);
         UpdateUI();
     }
 
@@ -50,7 +52,6 @@ public class TradeUI : MonoBehaviour
             PatienceText.text = $"Patience; {TradeSystem.Patience}";
             CurrentOfferText.text = $"Current Offer: {TradeSystem.CurrentOffer.AsText()}";
             ArtImage.sprite = TradeSystem.CurrentArt.Sprite;
-
         }
         else
         {
@@ -66,13 +67,21 @@ public class TradeUI : MonoBehaviour
             TradeText.text = $"What Piece of Art do you offer with {TradeSystem.Buyer.LeaderName} from the {TradeSystem.Buyer.name}?";
         }
 
+        if(TradeSystem.CurrentTradeState == TradeSystem.TradeState.Success)
+        {
+
+            TradeText.text = $"Sold {TradeSystem.CurrentArt.name} for {TradeSystem.CurrentOffer.AsText()}!";
+        }
+
         CharacterImage.gameObject.SetActive(TradeSystem.CurrentTradeState != TradeSystem.TradeState.NoCustomer);
 
         ArtImage.enabled = TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating;
 
         //Enabling/disabling based on trade state
         //TODO: make a class that listens to Trade update. TradeUpdate sends the new tradestate. Enables/disables button
-        SelectItemMenu.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.NeedsArt);
+
+        SelectArtButton.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.NeedsArt);
+        GetOutButton.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.NeedsArt);
         AcceptTradeButton.gameObject.SetActive( TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
         CounterOfferButton.gameObject.SetActive( TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
         DenyTradeButton.gameObject.SetActive(TradeSystem.CurrentTradeState == TradeSystem.TradeState.Negotiating);
@@ -105,6 +114,15 @@ public class TradeUI : MonoBehaviour
         AskedForRumour = true;
         RumourButton.gameObject.SetActive(false);
         CommentText.text = RumourManager.GetRumourSpeech(TradeSystem.Buyer);
+    }
+
+    private void CustomersAsksForArt()
+    {
+    }
+
+    private void GetOut()
+    {
+        TradeSystem.ThrowOut();
     }
 
     private void MakeArgument(TradeSystem.ArgumentType argumentType)

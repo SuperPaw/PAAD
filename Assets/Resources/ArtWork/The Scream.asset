@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: The Scream
   m_EditorClassIdentifier: 
   name: Skrik
+  plural: 
   Sprite: {fileID: 21300000, guid: a696892a56b0e9245a69fadc0b9a196d, type: 3}
   InitialValue: 30
-  Value: 20
+  Value: 30
   FoodValue: 0
   SecurityValue: 0
   Producable: 0
@@ -25,6 +26,7 @@ MonoBehaviour:
     images of art, seen as symbolising the anxiety of the human condition.
   Info: Expressionistic painting by artist Edvard Munch
   Year: 1893
+  EstimatedValue: $400 million
   Properties: 0a0000000900000003000000070000000f000000110000000b000000
   Colors: 010000000400000002000000
   Movement: e.g. Surrealist

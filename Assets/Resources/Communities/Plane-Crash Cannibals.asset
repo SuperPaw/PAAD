@@ -18,9 +18,9 @@ MonoBehaviour:
   LeaderName: Simeon
   LeaderImage: {fileID: 21300000, guid: 57c4b74dc198a6945b3d2a440a7abe89, type: 3}
   CommunityIcon: {fileID: 0}
-  Producers: 0
-  Scavengers: 0
-  Raiders: 0
+  Producers: 1
+  Scavengers: 1
+  Raiders: 1
   LeaderTraits: 00000000060000000a000000
   PrimaryResources:
   - {fileID: 11400000, guid: b73f803e567fb9e45a1f149cbb528de7, type: 2}

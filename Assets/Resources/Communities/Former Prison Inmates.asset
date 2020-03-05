@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88eadddc884bf54498ae44afc771132f, type: 3}
   m_Name: Former Prison Inmates
   m_EditorClassIdentifier: 
-  StartAttitude: 5
+  StartAttitude: 10
   StartWealth: 0
   name: Former Prison Mates
   LeaderName: Joe Russo
   LeaderImage: {fileID: 21300000, guid: 39e3874ca1a44b346bbc2dfcb96e9ccd, type: 3}
   CommunityIcon: {fileID: 0}
   Producers: 0
-  Scavengers: 0
-  Raiders: 0
+  Scavengers: 1
+  Raiders: 1
   LeaderTraits: 00000000060000000a000000
   PrimaryResources:
   - {fileID: 11400000, guid: ff7decbd8a5fe624d82bcc41d1cabcce, type: 2}
@@ -28,4 +28,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10937e9c275f7d44993e0af8b872c703, type: 2}
   FavoriteProperties: 010000000300000004000000080000000b0000000e0000000600000010000000
   FavoriteColors: 060000000700000002000000
-  Attitude: 5
+  Attitude: 10
+  LastVisit: -1

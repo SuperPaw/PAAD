@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -19,6 +20,11 @@ public class Community : ScriptableObject
         Wicked,
         Violent,
         Pacifist // Anarchist?
+    }
+
+    internal int GetAttackStrength()
+    {
+        return (int)(Inventory.GetSecurityValue() /10f);
     }
 
     [SerializeField]
@@ -42,17 +48,21 @@ public class Community : ScriptableObject
     [HideInInspector]
     public int Attitude;
 
+    [HideInInspector]
+    public int LastVisit;
+
 
 
 
     //TODO: use this when the game starts
-    public void SetupInventory()
+    public void Setup()
     {
+        LastVisit = -1;
 
         //TODO: use wealth to determine how much stuff they have
         foreach (var c in PrimaryResources)
         {
-            Inventory.Add(c, Random.Range(2, 20));
+            Inventory.Add(c, 15);
         }
 
         Attitude = StartAttitude;

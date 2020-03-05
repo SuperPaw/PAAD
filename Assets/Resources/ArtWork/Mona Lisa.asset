@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Mona Lisa
   m_EditorClassIdentifier: 
   name: Monna Lisa
+  plural: 
   Sprite: {fileID: 21300000, guid: 29ebbd9e5c7e9194fafbf92c4a27a4d5, type: 3}
   InitialValue: 30
-  Value: 20
+  Value: 30
   FoodValue: 0
   SecurityValue: 0
   Producable: 0
@@ -24,7 +25,8 @@ MonoBehaviour:
   SalesPitch: The masterpiece of all masterpieces, the most famous, most discussed
     and most enigmatic of all paintings; Monna Lisa by Leonardo da Vinci.
   Info: the archetypal masterpiece of the Italian Renaissance by Leonardo da Vinci
-  Year: 0
+  Year: 1513
+  EstimatedValue: '> $3 billion'
   Properties: 0a00000009000000030000000700000010000000110000000c000000
   Colors: 0900000004000000
   Movement: e.g. Surrealist

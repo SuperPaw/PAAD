@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: The Starry Night
   m_EditorClassIdentifier: 
   name: The Starry Night
+  plural: 
   Sprite: {fileID: 21300000, guid: eeb7e805164432d46a36e446026bbe05, type: 3}
   InitialValue: 30
-  Value: 20
+  Value: 30
   FoodValue: 0
   SecurityValue: 0
   Producable: 0
@@ -26,6 +27,7 @@ MonoBehaviour:
     culture.
   Info: 'oil on canvas by the Dutch post-impressionist painter Vincent van Gogh. '
   Year: 1889
+  EstimatedValue: $600 million
   Properties: 0a0000000900000003000000070000000f000000110000000c000000
   Colors: 0200000004000000
   Movement: e.g. Surrealist

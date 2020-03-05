@@ -21,6 +21,11 @@ public class Database : MonoBehaviour
     {
         if (!Instance) Instance = this;
 
+        foreach(var c in AllCommunities)
+        {
+            c.Setup();
+        }
+
         //LoadScriptableObjects();
     }
 

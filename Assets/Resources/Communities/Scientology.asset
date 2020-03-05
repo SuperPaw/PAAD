@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88eadddc884bf54498ae44afc771132f, type: 3}
   m_Name: Scientology
   m_EditorClassIdentifier: 
-  StartAttitude: 15
+  StartAttitude: 10
   StartWealth: 0
   name: Scientology
   LeaderName: Tommy Cross
@@ -20,7 +20,7 @@ MonoBehaviour:
   CommunityIcon: {fileID: 0}
   Producers: 0
   Scavengers: 0
-  Raiders: 0
+  Raiders: 1
   LeaderTraits: 00000000060000000a000000
   PrimaryResources:
   - {fileID: 11400000, guid: ab6a70987522cb143bcb827668b1c216, type: 2}
@@ -28,4 +28,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10937e9c275f7d44993e0af8b872c703, type: 2}
   FavoriteProperties: 09000000060000000e0000000c00000010000000
   FavoriteColors: 010000000300000004000000
-  Attitude: 17
+  Attitude: 10
+  LastVisit: -1

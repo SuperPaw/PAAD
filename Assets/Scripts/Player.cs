@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
             OnSecurityChange.Invoke(value);
         }
     }
-    private static int food;
+    private static int food = 10;
     public static int Food
     {
         get => food; set

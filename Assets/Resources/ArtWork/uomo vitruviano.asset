@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: uomo vitruviano
   m_EditorClassIdentifier: 
   name: L'uomo vitruviano
+  plural: 
   Sprite: {fileID: 21300000, guid: c0bd72c5ee57b7e43bc6ea3139d02028, type: 3}
   InitialValue: 20
-  Value: 10
+  Value: 20
   FoodValue: 0
   SecurityValue: 0
   Producable: 0
@@ -25,6 +26,7 @@ MonoBehaviour:
   Info: A historical masterpiece - The Vitruvian Man examplifies the blend of mathematics
     and art during the Renaissance.
   Year: 1490
+  EstimatedValue: $400 million
   Properties: 03000000070000000a0000000d00000010000000
   Colors: 0400000006000000
   Movement: e.g. Surrealist

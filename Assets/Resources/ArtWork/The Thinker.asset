@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: The Thinker
   m_EditorClassIdentifier: 
   name: Le Penseur
+  plural: 
   Sprite: {fileID: 21300000, guid: 95bdf506d76c66b439d51a90b4f1fae3, type: 3}
   InitialValue: 20
   Value: 20
@@ -26,6 +27,7 @@ MonoBehaviour:
     often used as an image to represent philosophy. '
   Info: Famous bronze sculpture by French scultor Auguste Rodin
   Year: 0
+  EstimatedValue: $11 million
   Properties: 08000000060000000a00000011000000
   Colors: 08000000
   Movement: e.g. Surrealist

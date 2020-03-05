@@ -22,4 +22,6 @@ public class TopbarUI : MonoBehaviour
         Player.OnSecurityChange.AddListener(v => SecurityValueText.text = v.ToString("N0"));
     }
 
+
+
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   CommunityIcon: {fileID: 0}
   Producers: 0
   Scavengers: 0
-  Raiders: 0
+  Raiders: 1
   LeaderTraits: 00000000060000000a000000
   PrimaryResources:
   - {fileID: 11400000, guid: ff7decbd8a5fe624d82bcc41d1cabcce, type: 2}
@@ -29,3 +29,4 @@ MonoBehaviour:
   FavoriteProperties: 010000000300000004000000080000000b0000000e0000000600000010000000
   FavoriteColors: 010000000300000004000000
   Attitude: 10
+  LastVisit: -1

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Guernica
   m_EditorClassIdentifier: 
   name: Guernica
+  plural: 
   Sprite: {fileID: 21300000, guid: 33fb5f020e2f26943aa6a450bcedc717, type: 3}
   InitialValue: 20
   Value: 20
@@ -26,6 +27,7 @@ MonoBehaviour:
     It's an enormous painting, measuring over 11 ft.\r"
   Info: Picasso's giant cubist painting and most famous work.
   Year: 1937
+  EstimatedValue: $1 billion
   Properties: 01000000030000000a000000090000000b000000120000000e0000000f000000
   Colors: 060000000700000008000000
   Movement: e.g. Surrealist

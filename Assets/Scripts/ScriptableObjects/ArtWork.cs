@@ -7,13 +7,13 @@ using UnityEngine;
 public class ArtWork : Commodity
 {
     [Header("Art work specific")]
-    [SerializeField]
-    private string Artist;
+    public string Artist;
     [TextArea]
     public string SalesPitch;
     [TextArea]
     public string Info;
     public int Year;
+    public string EstimatedValue;
 
     //TODO: HashSet
     public Property[] Properties;

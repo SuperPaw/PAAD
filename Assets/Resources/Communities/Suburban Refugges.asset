@@ -19,7 +19,7 @@ MonoBehaviour:
   LeaderImage: {fileID: 21300000, guid: d7e5c61457c7fd04fbf764ed2123976b, type: 3}
   CommunityIcon: {fileID: 0}
   Producers: 0
-  Scavengers: 0
+  Scavengers: 1
   Raiders: 0
   LeaderTraits: 00000000060000000a000000
   PrimaryResources:

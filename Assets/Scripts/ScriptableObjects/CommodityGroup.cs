@@ -104,7 +104,7 @@ public class CommodityGroup : IEnumerable<KeyValuePair<Commodity,int>>
     }
 
     public int GetFoodValue()=> Inventory.Sum(c => c.Key.FoodValue* c.Value);
-    public int GetSecuritValue()=> Inventory.Sum(c => c.Key.SecurityValue* c.Value);
+    public int GetSecurityValue()=> Inventory.Sum(c => c.Key.SecurityValue* c.Value);
 
     internal object First() => Inventory.First(a => a.Value > 0);
 

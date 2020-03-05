@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0c1b2fdfde8bc4e8797973fc9509f0, type: 3}
   m_Name: House
   m_EditorClassIdentifier: 
-  name: Suburban House
+  name: House at 53 Walnut Drive
   Description: 
   Community: {fileID: 0}
   ClosestNeighbours:

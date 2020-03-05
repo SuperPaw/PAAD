@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: "Un dimanche apr\xE8s-midi \xE0 l'\xCEle de la Grande Jatte"
   m_EditorClassIdentifier: 
   name: "Un dimanche apr\xE8s-midi \xE0 l'\xCEle de la Grande Jatte"
+  plural: 
   Sprite: {fileID: 21300000, guid: e12c1adbfd0a663438e922f4ad5b4a45, type: 3}
   InitialValue: 20
-  Value: 10
+  Value: 20
   FoodValue: 0
   SecurityValue: 0
   Producable: 0
@@ -24,6 +25,7 @@ MonoBehaviour:
   SalesPitch: 
   Info: 
   Year: 1884
+  EstimatedValue: $45 million
   Properties: 03000000090000000a000000050000000f00000011000000
   Colors: 03000000
   Movement: e.g. Surrealist
